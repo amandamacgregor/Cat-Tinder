@@ -34,6 +34,10 @@ export default class App extends Component {
       }
   }
   
+handleNewCat = (e) => {
+  console.log(e)
+}
+  
   render() {
     return (
       <div>
@@ -49,7 +53,7 @@ export default class App extends Component {
                     <Link to="/cats" class="nav-link" >Cats</Link>
                   </li>
                   <li class="nav-item">
-                  <Link to="/newcats" class="nav-link" >New Cat</Link>
+                  <Link to="/newcat" class="nav-link" >New Cat</Link>
                   </li>
                 </ul>
               </div>
@@ -58,7 +62,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/cats" render={(props) => <Cats cats={this.state.cats}/> }/>
-            <Route exact path="/newcat" component={NewCat} />
+            <Route exact path="/newcat" render={(props) => <NewCat handleNewCat={this.handleNewCat}/>}/>
           </Switch>
         </Router>
         
